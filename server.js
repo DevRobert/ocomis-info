@@ -1,25 +1,11 @@
 const Hapi = require("hapi")
+const routes = require("./lib/routes/")
 
 const server = new Hapi.Server()
 
 server.connection({
     port: 3000
 })
-
-const routes = [
-    {
-        method: "GET",
-        path: "/",
-        handler: (request, response) => {
-            const result = {
-                message: "Ocomis info service",
-                time: new Date().toString()
-            }
-           
-            response(result)
-        }
-    }
-]
 
 server.route(routes)
 
