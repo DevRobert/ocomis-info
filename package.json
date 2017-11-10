@@ -1,0 +1,24 @@
+{
+  "name": "ocomis-info",
+  "version": "1.0.0",
+  "description": "The ocomis info service provides basic information about the running ocomis environment.",
+  "main": "server.js",
+  "dependencies": {
+    "hapi": "^16.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevRobert/ocomis-info.git"
+  },
+  "author": "",
+  "license": "Private",
+  "bugs": {
+    "url": "https://github.com/DevRobert/ocomis-info/issues"
+  },
+  "homepage": "https://github.com/DevRobert/ocomis-info#readme"
+}
