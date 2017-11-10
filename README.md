@@ -5,3 +5,9 @@ The ocomis info service provides basic information about the running ocomis envi
 ## Tech Stack
 
 * NodeJS
+
+## Build and publish Docker image
+
+`docker build -t blutner/ocomis-info:latest .`
+
+`docker push blutner/ocomis-info:latest`
