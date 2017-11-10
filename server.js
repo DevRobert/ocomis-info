@@ -3,7 +3,6 @@ const Hapi = require("hapi")
 const server = new Hapi.Server()
 
 server.connection({
-    host: "localhost",
     port: 3000
 })
 
@@ -29,5 +28,6 @@ server.start((error) => {
         throw error
     }
 
+    console.log("Ocomis info service started.")
     console.log("Server running at: " + server.info.uri)
 })
