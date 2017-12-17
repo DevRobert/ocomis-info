@@ -12,7 +12,7 @@ async function provision() {
     await server.register(HapiPino)
     await server.start()
 
-    server.logger().info('Ocomis info service started.')
+    server.logger().info('Ocomis Info Service started.')
     server.logger().info(`Server running at: ${server.info.uri}`)
 }
 
