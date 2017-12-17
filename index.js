@@ -10,7 +10,6 @@ server.route(routes)
 
 async function provision() {
     await server.register(HapiPino)
-
     await server.start()
 
     server.logger().info('Ocomis info service started.')
