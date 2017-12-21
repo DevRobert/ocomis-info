@@ -1,7 +1,7 @@
 const Hapi = require('hapi')
-const pino = require('pino')
 const HapiPino = require('hapi-pino')
 const routes = require('./lib/routes/')
+const logger = require('./lib/logger')
 
 const server = new Hapi.Server({
     port: 3000
@@ -10,10 +10,6 @@ const server = new Hapi.Server({
 server.route(routes)
 
 async function provision () {
-    const logger = pino().child({
-        service: 'ocomis-info'
-    })
-
     await server.register({
         plugin: HapiPino,
         options: {
@@ -23,11 +19,11 @@ async function provision () {
 
     await server.start()
 
-    server.logger().info('Ocomis Info Service started.')
-    server.logger().info(`Server running at: ${server.info.uri}`)
+    logger.info('Ocomis Info Service started.')
+    logger.info(`Server running at: ${server.info.uri}`)
 }
 
 provision().catch((error) => {
-    console.error(error)
+    logger.error(error)
     process.exit(1)
 })
