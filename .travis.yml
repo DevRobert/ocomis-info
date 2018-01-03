@@ -8,14 +8,10 @@ node_js:
 services:
   - docker
 
-before_install:
-  - docker build -t "blutner/ocomis-info:$TRAVIS_COMMIT" .
-  - docker tag "blutner/ocomis-info:$TRAVIS_COMMIT" "blutner/ocomis-info:latest"
-
 script:
-  - npm test
-  - npm run eslint
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - ./Build.sh
+  - docker tag "blutner/ocomis-info:latest" "blutner/ocomis-info:$TRAVIS_COMMIT"
   - docker push "blutner/ocomis-info:$TRAVIS_COMMIT"
   - docker push "blutner/ocomis-info:latest"
   - docker logout
