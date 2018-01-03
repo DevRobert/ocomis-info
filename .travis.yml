@@ -13,6 +13,8 @@ before_install:
   - docker tag "blutner/ocomis-info:$TRAVIS_COMMIT" "blutner/ocomis-info:latest"
 
 script:
+  - npm test
+  - npm run eslint
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push "blutner/ocomis-info:$TRAVIS_COMMIT"
   - docker push "blutner/ocomis-info:latest"
